@@ -22,6 +22,13 @@ public class WaterLevelRepository {
                 .map((row, rowMetadata) -> parse(row))
                 .all();
     }
+    
+    public Flux<WaterLevel> findRecents(int lastRecents) {
+    	return databaseClient.sql("SELECT * FROM water_level ORDER BY id DESC LIMIT :recents")
+    			.bind("recents", lastRecents)
+    			.map((row, rowMetadata) -> parse(row))
+    			.all();
+    }
 
 
     private WaterLevel parse(Row row) {
