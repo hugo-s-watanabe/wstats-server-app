@@ -27,7 +27,7 @@ public class WaterLevelRepository {
     private WaterLevel parse(Row row) {
         Long id = row.get("id", Long.class);
         String key = row.get("key", String.class);
-        Double levelPercentage = row.get("levelPercentage", Double.class);
+        Double levelPercentage = row.get("level_percentage", Double.class);
 
         return new WaterLevel(id, key, levelPercentage);
     }

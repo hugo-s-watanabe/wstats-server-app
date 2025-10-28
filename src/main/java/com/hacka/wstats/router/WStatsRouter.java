@@ -9,7 +9,7 @@ import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
 @Configuration
-public class WaterLevelRouter {
+public class WStatsRouter {
 
     @Autowired
     private WaterLevelHandler waterLevelHandler;
@@ -17,6 +17,7 @@ public class WaterLevelRouter {
     @Bean
     public RouterFunction<ServerResponse> waterLevelRouter() {
         return RouterFunctions.route()
-                .GET("/wlevel", request -> ServerResponse.sse(this.waterLevelHandler::lifetimeWaterLevel));
+                .GET("/wlevel", this.waterLevelHandler::lifetimeWaterLevel)
+                .build();
     }
 }

@@ -63,7 +63,10 @@
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-r2dbc</artifactId>
-			<version>4.0.0-M6</version>
+		</dependency>
+		<dependency>
+		  <groupId>org.postgresql</groupId>
+		  <artifactId>r2dbc-postgresql</artifactId>
 		</dependency>
 	</dependencies>
 
